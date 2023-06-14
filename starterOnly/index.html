@@ -56,11 +56,24 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
+            <div id="form-confirmation-message" style="display:none">
+              <div class="confirmation-inscrip">
+                <div class="margin-text">Merci pour</div><br>
+                  votre inscription
+              </div>  
+
+              <input
+                id="btn-send"  
+                class="btn-fermer button"
+                type="submit"
+                value="Fermer"
+              >
+            </div>
             <form
               name="reserve"
+              id="form"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
             >
               <div
                 class="formData">
@@ -72,6 +85,7 @@
                   name="first"
                   minlength="2"
                 /><br>
+                <span id="errorFirstName" class="error-alert-message"></span> <!--ajout-->
               </div>
               <div
                 class="formData">
@@ -82,6 +96,7 @@
                   id="last"
                   name="last"
                 /><br>
+                <span id="errorLastName" class="error-alert-message"></span> <!--ajout-->
               </div>
               <div
                 class="formData">
@@ -92,6 +107,7 @@
                   id="email"
                   name="email"
                 /><br>
+                <span id="errorMail" class="error-alert-message"></span> <!--ajout-->
               </div>
               <div
                 class="formData">
@@ -102,11 +118,13 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
+                <span id="errorBirthdate" class="error-alert-message"></span> <!--ajout-->
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <span id="errorQuantity" class="error-alert-message"></span>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
@@ -177,6 +195,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <span id="errorLoc" class="error-alert-message"></span>
               </div>
 
               <div
@@ -191,18 +210,18 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
+                <span id="errorCheckBox" class="error-alert-message"></span>
                 <br>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
               <input
-                class="btn-submit"
+                class="btn-submit button"
                 type="submit"
-                class="button"
                 value="C'est parti"
               />
             </form>
@@ -216,5 +235,6 @@
       </p>
     </footer>
     <script src="modal.js"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
