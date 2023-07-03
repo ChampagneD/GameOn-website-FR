@@ -18,6 +18,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  document.querySelector("#form-confirmation-message").style.display = "none";
 }
 
 // Close the Modale on click
