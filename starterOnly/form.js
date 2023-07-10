@@ -43,12 +43,20 @@ function hideError(error, target) {
 export const isFirstNameValid = (el) => {
   const target = el.target || el;
 
+  const regex = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/;
+
   if (target.value.trim() === "") {
     //  Instruction d'erreur pour champ INPUT firstName vide
 
     showError(errorFirst, "Vous devez entrer votre prénom", target);
 
     return false;
+  } else if (!target.value.match(regex)) {
+    showError(
+      errorFirst,
+      "Veuillez rentrer uniquement des caractéres valides",
+      target
+    );
   } else if (target.value.length < 2) {
     showError(errorFirst, "Veuillez remplir le champ prénom", target);
     return false;
@@ -61,11 +69,19 @@ export const isFirstNameValid = (el) => {
 export const isLastNameValid = (el) => {
   const target = el.target || el;
 
+  const regex = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/;
+
   if (target.value.trim() === "") {
     //  Instruction d'erreur pour champ INPUT firstName vide
     showError(errorLastName, "Vous devez entrer votre nom", target);
 
     return false;
+  } else if (!target.value.match(regex)) {
+    showError(
+      errorFirst,
+      "Veuillez rentrer uniquement des caractéres valides",
+      target
+    );
   } else if (target.value.length < 2) {
     // Instruction d'erreur pour champ lastName tailles des caractères
     showError(
